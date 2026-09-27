@@ -1,0 +1,1277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rutuja Shinde is a Full Stack Developer and Data Analytics freelancer specializing in React.js, Node.js, Python, Power BI, and machine learning solutions."
+    />
+    <title>Rutuja Shinde | Full Stack Developer & Data Analyst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07111f;
+        --bg-soft: #0d1b2a;
+        --card: rgba(14, 25, 42, 0.9);
+        --card-2: rgba(18, 31, 50, 0.95);
+        --text: #ebf1ff;
+        --muted: #aab8d2;
+        --line: rgba(151, 166, 201, 0.22);
+        --primary: #8b5cf6;
+        --secondary: #22d3ee;
+        --success: #34d399;
+        --warning: #fbbf24;
+        --shadow: 0 24px 80px rgba(15, 23, 42, 0.55);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(139, 92, 246, 0.16), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.14), transparent 25%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 110px 0;
+      }
+
+      .section-title {
+        margin-bottom: 18px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        font-weight: 700;
+      }
+
+      .eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 34px;
+        height: 1px;
+        background: rgba(34, 211, 238, 0.7);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0.96rem 1.5rem;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: #f6fff9;
+        box-shadow: 0 18px 38px rgba(34, 197, 94, 0.32);
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.02);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(14px);
+        background: rgba(7, 17, 31, 0.75);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+        gap: 20px;
+      }
+
+      .brand {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .brand span {
+        color: var(--secondary);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 1.75rem);
+        font-size: 0.96rem;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--text);
+      }
+
+      .nav-toggle {
+        display: none;
+      }
+
+      .hero {
+        padding: 90px 0 54px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: clamp(2rem, 5vw, 4rem);
+      }
+
+      .hero-copy h1 {
+        margin: 16px 0 18px;
+        font-size: clamp(3rem, 7vw, 5.3rem);
+        line-height: 0.96;
+        letter-spacing: -0.08em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #e9d5ff, #8fe9ff 52%, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-copy p {
+        max-width: 620px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .mini-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .mini-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.7rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 18px rgba(52, 211, 153, 0.8);
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+
+      .portfolio-image {
+        width: 100%;
+        min-height: 460px;
+        object-fit: cover;
+        border-radius: 28px;
+        border: 1px solid rgba(143, 166, 219, 0.18);
+        box-shadow: var(--shadow);
+        display: block;
+        background: linear-gradient(180deg, rgba(19, 31, 50, 0.95), rgba(10, 18, 29, 0.9));
+      }
+
+      .panel {
+        position: relative;
+        background: linear-gradient(180deg, rgba(19, 31, 50, 0.95), rgba(10, 18, 29, 0.9));
+        border: 1px solid rgba(143, 166, 219, 0.18);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .code-panel {
+        padding: 20px;
+        transform: rotate(2deg);
+      }
+
+      .window-bar {
+        display: flex;
+        gap: 8px;
+        padding-bottom: 18px;
+      }
+
+      .window-bar span {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .window-bar span:nth-child(1) { background: #f87171; }
+      .window-bar span:nth-child(2) { background: #fbbf24; }
+      .window-bar span:nth-child(3) { background: #34d399; }
+
+      .code-window {
+        background: rgba(4, 8, 17, 0.86);
+        border: 1px solid rgba(142, 154, 186, 0.18);
+        border-radius: 14px;
+        padding: 18px 18px 14px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        color: #dce7ff;
+        font-size: 0.94rem;
+        line-height: 1.8;
+      }
+
+      .code-window .purple { color: #c084fc; }
+      .code-window .cyan { color: #67e8f9; }
+      .code-window .green { color: #6ee7b7; }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .stat-box {
+        padding: 18px 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--line);
+      }
+
+      .stat-box strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      .stat-box span {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-card {
+        padding: 28px;
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(17, 25, 38, 0.9), rgba(12, 21, 34, 0.8));
+        border: 1px solid var(--line);
+      }
+
+      .about-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .about-item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        color: var(--muted);
+      }
+
+      .check {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(52, 211, 153, 0.1);
+        color: var(--success);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .pill-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .pill {
+        padding: 0.7rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.26);
+        color: #e9d5ff;
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+
+      .services-grid,
+      .project-grid,
+      .process-grid,
+      .testimonial-grid,
+      .contact-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 38px;
+      }
+
+      .card {
+        position: relative;
+        border-radius: 22px;
+        padding: 28px 24px;
+        background: linear-gradient(180deg, rgba(16, 27, 41, 0.95), rgba(9, 18, 30, 0.9));
+        border: 1px solid rgba(154, 170, 206, 0.16);
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), transparent 75%);
+      }
+
+      .card-icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 15px;
+        background: rgba(34, 211, 238, 0.09);
+        color: var(--secondary);
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .skills-wrap {
+        margin-top: 32px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .skill-box {
+        padding: 26px 22px;
+        background: rgba(11, 20, 32, 0.88);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+      }
+
+      .skill-box h3 {
+        margin: 0 0 16px;
+        font-size: 1.1rem;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tag-list span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        background: rgba(148, 163, 184, 0.08);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        color: #edf3ff;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .tag-list span strong {
+        margin-left: 4px;
+        color: var(--secondary);
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 36px;
+      }
+
+      .project-card {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .project-visual {
+        min-height: 200px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(34, 211, 238, 0.14), rgba(15, 23, 42, 0.8));
+      }
+
+      .dashboard {
+        width: 100%;
+        height: 160px;
+        border-radius: 18px;
+        background: rgba(3, 9, 18, 0.75);
+        border: 1px solid rgba(164, 180, 220, 0.16);
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        overflow: hidden;
+      }
+
+      .bars {
+        display: flex;
+        align-items: end;
+        gap: 12px;
+        padding: 22px 18px 16px;
+      }
+
+      .bars span {
+        display: block;
+        width: 16%;
+        border-radius: 14px 14px 0 0;
+        background: linear-gradient(180deg, var(--primary), var(--secondary));
+      }
+
+      .bars span:nth-child(1) { height: 35%; }
+      .bars span:nth-child(2) { height: 55%; }
+      .bars span:nth-child(3) { height: 68%; }
+      .bars span:nth-child(4) { height: 80%; }
+      .bars span:nth-child(5) { height: 92%; }
+
+      .donut {
+        position: relative;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: var(--text);
+      }
+
+      .donut::before {
+        content: "";
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        background: conic-gradient(var(--success) 0 74%, rgba(255,255,255,0.1) 0 100%);
+        box-shadow: inset 0 0 0 12px rgba(255,255,255,0.05);
+      }
+
+      .donut::after {
+        content: "74%";
+        position: absolute;
+        font-size: 0.82rem;
+      }
+
+      .project-content {
+        padding: 24px 22px 22px;
+      }
+
+      .project-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .project-content h3 {
+        margin: 0 0 10px;
+        font-size: 1.3rem;
+      }
+
+      .project-content p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .project-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .link-arrow {
+        color: var(--secondary);
+        font-weight: 700;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 38px;
+      }
+
+      .step {
+        position: relative;
+        padding: 26px 20px;
+        border-radius: 20px;
+        background: rgba(13, 23, 35, 0.88);
+        border: 1px solid var(--line);
+      }
+
+      .step-number {
+        display: inline-flex;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: rgba(139, 92, 246, 0.12);
+        color: #e9d5ff;
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      .step h3 {
+        margin: 0 0 8px;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 38px;
+      }
+
+      .quote-card {
+        padding: 24px 22px;
+      }
+
+      .stars {
+        color: #fbbf24;
+        letter-spacing: 0.15em;
+        margin-bottom: 10px;
+      }
+
+      .quote-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .person {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        font-weight: 800;
+      }
+
+      .person small {
+        color: var(--muted);
+      }
+
+      .contact-wrap {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 20px;
+      }
+
+      .contact-card {
+        padding: 30px 24px;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .contact-item .icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(34, 211, 238, 0.08);
+        color: var(--secondary);
+        font-weight: 700;
+      }
+
+      .contact-item span {
+        display: block;
+        color: var(--muted);
+      }
+
+      form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(160, 178, 212, 0.18);
+        background: rgba(255,255,255,0.02);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 0.95rem 1rem;
+        font: inherit;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: rgba(170, 184, 210, 0.75);
+      }
+
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      footer {
+        padding: 28px 0 42px;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+      }
+
+      .socials {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .socials a {
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .about-grid,
+        .contact-wrap,
+        .services-grid,
+        .project-grid,
+        .testimonial-grid,
+        .process-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid,
+        .about-grid,
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-grid,
+        .testimonial-grid,
+        .process-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          position: relative;
+        }
+
+        .nav-toggle {
+          display: inline-flex;
+          width: 42px;
+          height: 42px;
+          border-radius: 10px;
+          border: 1px solid var(--line);
+          background: rgba(255,255,255,0.02);
+          color: var(--text);
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+
+        .nav-links {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem 1.2rem 1.2rem;
+          background: rgba(7, 17, 31, 0.96);
+          border-bottom: 1px solid var(--line);
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .hero {
+          padding-top: 60px;
+        }
+
+        .hero-grid,
+        .about-grid,
+        .services-grid,
+        .project-grid,
+        .testimonial-grid,
+        .process-grid,
+        .skills-grid,
+        .row,
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(2.5rem, 12vw, 4rem);
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .mini-meta,
+        .footer-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="#home" class="brand">Rutuja<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="btn primary">Let’s Talk</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Available for freelance work</div>
+            <h1>
+              Full Stack Developer<br />
+              <span class="gradient-text">& Data Analytics</span><br />
+              Freelancer
+            </h1>
+            <p>
+              I design and build scalable web applications, automation workflows, and business intelligence dashboards that help companies grow faster and operate smarter.
+            </p>
+            <div class="hero-actions">
+              <a href="https://wa.me/919146217037?text=Hi%20Rutuja%2C%20I%20want%20to%20discuss%20a%20project." class="btn primary" target="_blank" rel="noreferrer">Message on WhatsApp</a>
+              <a href="#projects" class="btn secondary">View My Work</a>
+            </div>
+            <div class="mini-meta">
+              <div class="mini-pill"><span class="dot"></span> Open to freelance projects</div>
+              <div class="mini-pill">Remote • India • Global clients</div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <img class="portfolio-image" src="./ChatGPT Image Sep 26, 2026, 08_42_15 PM.png" alt="Rutuja Shinde portfolio profile" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-card reveal">
+            <div class="eyebrow">01 / About</div>
+            <h2 class="section-title">Digital products that blend engineering with business insight.</h2>
+            <p class="muted">
+              I build modern web applications that are fast, responsive, scalable, and focused on real business goals. My work blends clean frontend experiences with powerful backend logic and reliable database systems.
+            </p>
+            <div class="about-list">
+              <div class="about-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>Web development focus</strong><br />
+                  <span>Responsive websites, dashboards, admin panels, and business apps built with React, Node.js, Express, and JavaScript.</span>
+                </div>
+              </div>
+              <div class="about-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>Business-ready solutions</strong><br />
+                  <span>Clean architecture, smooth user experience, and practical functionality that helps teams work faster.</span>
+                </div>
+              </div>
+              <div class="about-item">
+                <span class="check">✓</span>
+                <div>
+                  <strong>Data + product thinking</strong><br />
+                  <span>I combine web development with SQL, analytics, and automation to create smarter digital tools.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="eyebrow">Core strengths</div>
+            <h3 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.7rem); margin-top: 18px; margin-bottom: 0;">What I bring to your project</h3>
+            <div class="pill-grid">
+              <span class="pill">React.js</span>
+              <span class="pill">Next.js</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Express.js</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Tailwind CSS</span>
+              <span class="pill">Python</span>
+              <span class="pill">SQL</span>
+              <span class="pill">MongoDB</span>
+              <span class="pill">MySQL</span>
+              <span class="pill">Power BI</span>
+              <span class="pill">Machine Learning</span>
+              <span class="pill">Git & GitHub</span>
+              <span class="pill">Docker</span>
+            </div>
+            <div class="about-card" style="margin-top: 22px;">
+              <div class="eyebrow">Current focus</div>
+              <h3 style="margin: 12px 0 8px; font-size: 1.4rem;">Full Stack Web Developer</h3>
+              <p class="muted" style="margin: 0;">
+                Building responsive web applications, CRM tools, HRMS systems, and data-driven business features using Node.js, React.js, JavaScript, and SQL.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="eyebrow">02 / Services</div>
+          <h2 class="section-title">Professional solutions for modern businesses.</h2>
+          <div class="services-grid">
+            <article class="card reveal">
+              <div class="card-icon">⚙️</div>
+              <h3>Full-Stack Web Development</h3>
+              <p>End-to-end creation of responsive, scalable web apps using React, Next.js, Node.js, Express.js, and modern front-end architecture.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-icon">📊</div>
+              <h3>Data Analytics & Dashboards</h3>
+              <p>Power BI dashboards, SQL data models, KPI tracking systems, and custom reporting for better operational visibility.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-icon">🤖</div>
+              <h3>AI / ML & Automation</h3>
+              <p>Predictive modeling, workflow automation, intelligent insights, and business process optimization using Python and ML pipelines.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-icon">🔌</div>
+              <h3>API & Integrations</h3>
+              <p>Robust RESTful APIs, database integrations, cloud deployments, and third-party service connections tailored to business needs.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-icon">📈</div>
+              <h3>Performance Optimization</h3>
+              <p>Faster page loads, cleaner code, responsive UI improvements, and maintainable architecture for long-term business growth.</p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-icon">🛠️</div>
+              <h3>Maintenance & Support</h3>
+              <p>Ongoing support, feature enhancements, bug fixes, deployment optimization, and technical consultation for evolving products.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="eyebrow">03 / Skills</div>
+          <h2 class="section-title">Technical proficiency built for real client work.</h2>
+          <div class="skills-grid skills-wrap">
+            <div class="skill-box reveal">
+              <h3>Frontend</h3>
+              <div class="tag-list">
+                <span>React.js <strong>Advanced</strong></span>
+                <span>Next.js <strong>Advanced</strong></span>
+                <span>JavaScript <strong>Advanced</strong></span>
+                <span>TypeScript <strong>Good</strong></span>
+                <span>HTML & CSS <strong>Advanced</strong></span>
+                <span>Tailwind CSS <strong>Advanced</strong></span>
+              </div>
+            </div>
+
+            <div class="skill-box reveal">
+              <h3>Backend & Database</h3>
+              <div class="tag-list">
+                <span>Node.js <strong>Advanced</strong></span>
+                <span>Express.js <strong>Advanced</strong></span>
+                <span>MongoDB <strong>Advanced</strong></span>
+                <span>MySQL <strong>Advanced</strong></span>
+                <span>SQL <strong>Advanced</strong></span>
+                <span>Docker <strong>Advanced</strong></span>
+              </div>
+            </div>
+
+            <div class="skill-box reveal">
+              <h3>Data & AI</h3>
+              <div class="tag-list">
+                <span>Python <strong>Advanced</strong></span>
+                <span>Power BI <strong>Advanced</strong></span>
+                <span>Machine Learning <strong>Advanced</strong></span>
+                <span>Analytics <strong>Advanced</strong></span>
+                <span>Dashboards <strong>Advanced</strong></span>
+                <span>Insights <strong>Advanced</strong></span>
+              </div>
+            </div>
+
+            <div class="skill-box reveal">
+              <h3>Workflow & DevOps</h3>
+              <div class="tag-list">
+                <span>Git & GitHub <strong>Advanced</strong></span>
+                <span>REST APIs <strong>Advanced</strong></span>
+                <span>Deployment <strong>Advanced</strong></span>
+                <span>Testing <strong>Advanced</strong></span>
+                <span>Agile <strong>Advanced</strong></span>
+                <span>Cloud-ready <strong>Advanced</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="eyebrow">04 / Projects</div>
+          <h2 class="section-title">Selected work that demonstrates impact.</h2>
+          <div class="project-grid">
+            <article class="card project-card reveal">
+              <div class="project-visual">
+                <div class="dashboard">
+                  <div class="bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="donut" aria-label="Growth chart"></div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta"><span>Business Intelligence</span><span>Power BI</span></div>
+                <h3>Executive Sales Analytics</h3>
+                <p>Built a KPI dashboard for sales and revenue tracking with filters, drill-down views, and automated reporting for leadership teams.</p>
+                <div class="project-links">
+                  <span class="muted">SQL • Power BI • Python</span>
+                  <span class="link-arrow">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card reveal">
+              <div class="project-visual" style="background: linear-gradient(135deg, rgba(34,211,238,0.14), rgba(15,23,42,0.8), rgba(139,92,246,0.12));">
+                <div class="dashboard" style="grid-template-columns:1fr; padding:18px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; color:#dbeafe; font-weight:700;">
+                    <span>Operations</span>
+                    <span style="color:#67e8f9;">Live</span>
+                  </div>
+                  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; height:100%;">
+                    <div style="border-radius:12px; background:rgba(34,211,238,0.12); border:1px solid rgba(103,232,249,0.18);"></div>
+                    <div style="border-radius:12px; background:rgba(139,92,246,0.12); border:1px solid rgba(196,181,253,0.2);"></div>
+                    <div style="border-radius:12px; background:rgba(52,211,153,0.12); border:1px solid rgba(110,231,183,0.18);"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta"><span>CRM System</span><span>React + Node</span></div>
+                <h3>CRM Application</h3>
+                <p>Developed a customer relationship management app for managing leads, activities, communication tracking, and team workflows using Node.js, React.js, JavaScript, and SQL.</p>
+                <div class="project-links">
+                  <span class="muted">React.js • Node.js • SQL</span>
+                  <span class="link-arrow">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card reveal">
+              <div class="project-visual" style="background: linear-gradient(135deg, rgba(52,211,153,0.14), rgba(15,23,42,0.8), rgba(34,211,238,0.12));">
+                <div class="dashboard" style="grid-template-columns:1fr; padding:18px;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:14px; color:#dbeafe; font-weight:700;">
+                    <span>HRMS</span>
+                    <span style="color:#6ee7b7;">Core</span>
+                  </div>
+                  <div style="border-radius:16px; border:1px solid rgba(110,231,183,0.16); background:linear-gradient(180deg, rgba(52,211,153,0.1), rgba(15,23,42,0.1));; height:100%; position:relative; overflow:hidden;">
+                    <div style="position:absolute; inset:auto 10% 20% 10%; height:60%; border-radius:50% 50% 0 0; background:linear-gradient(180deg, rgba(110,231,183,0.35), rgba(110,231,183,0.04));"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta"><span>HR Management</span><span>Full Stack</span></div>
+                <h3>HRMS Application</h3>
+                <p>Built an HR management system for employee records, attendance handling, leave tracking, and reporting workflows with JavaScript-based web stack and SQL database.</p>
+                <div class="project-links">
+                  <span class="muted">JavaScript • React • SQL</span>
+                  <span class="link-arrow">↗</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="eyebrow">05 / Process</div>
+          <h2 class="section-title">A simple, transparent working process.</h2>
+          <div class="process-grid">
+            <div class="step reveal">
+              <div class="step-number">01</div>
+              <h3>Discovery</h3>
+              <p>I learn your business goals, users, and technical constraints before designing the solution.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-number">02</div>
+              <h3>Planning</h3>
+              <p>We define scope, architecture, delivery milestones, and success metrics for the project.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-number">03</div>
+              <h3>Build</h3>
+              <p>I develop the product with clean code, feedback loops, and regular progress updates.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-number">04</div>
+              <h3>Launch</h3>
+              <p>After QA and optimization, I deploy the final product and offer ongoing support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="eyebrow">07 / Contact</div>
+          <h2 class="section-title">Let’s build something valuable together.</h2>
+          <div class="contact-wrap">
+            <div class="card contact-card reveal">
+              <h3 style="margin:0; font-size:1.6rem;">Available for freelance collaborations</h3>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <div class="icon">✉</div>
+                  <div>
+                    <strong>Email</strong>
+                    <span>shinde7820986154@gmail.com</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="icon">☎</div>
+                  <div>
+                    <strong>Phone</strong>
+                    <span>+91 9146217037</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="icon"></div>
+                  <div>
+                    <strong>LinkedIn</strong>
+                    <span><a href="https://www.linkedin.com/in/rutuja-shinde-24bb94228/" target="_blank" rel="noreferrer">linkedin.com/in/rutuja-shinde-24bb94228</a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card contact-card reveal">
+              <h3 style="margin:0 0 14px; font-size:1.6rem;">Let’s discuss your project</h3>
+              <p class="muted" style="margin: 0 0 20px;">
+                I’m a Full Stack Developer with experience in CRM and HRMS applications built using Node.js, React.js, JavaScript, and SQL.
+              </p>
+              <a href="https://wa.me/919146217037?text=Hi%20Rutuja%2C%20I%20want%20to%20discuss%20a%20project." class="btn primary" target="_blank" rel="noreferrer">Message on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© <span id="year"></span> Rutuja Shinde. Built for impactful digital products.</div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/rutuja-shinde-24bb94228/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://wa.me/919146217037?text=Hi%20Rutuja%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav-links');
+
+      toggle && toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach((el) => observer.observe(el));
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
